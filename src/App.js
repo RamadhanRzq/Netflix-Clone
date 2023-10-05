@@ -17,9 +17,17 @@ const App = () => {
   const PopularMovieList = () => {
     return popularMovies.map((movie, i ) => {
       return (
-        <div>
+        <div className='w-1/3 space-y-5'>
         <p className='text-8xl'>{movie.title}</p>
-        <p className='text-md' style={{ overflowWrap: 'break-word' }}>{movie.overview}</p>
+        <p className='text-md'>{movie.overview}</p>
+        <div className='flex space-x-6'>
+        <Button leftIcon={<BiPlay/>} colorScheme='whiteAlpha' variant='solid' width={120} textColor='black'>
+            Play
+          </Button>
+          <Button leftIcon={<BiSolidInfoCircle/>} colorScheme='whiteAlpha' variant='solid' width={120} textColor='black'>
+            More Info
+          </Button>
+        </div>
        </div>   
       )
     })
@@ -50,16 +58,8 @@ const App = () => {
     </div>
     </section>
     <section> 
-      <div className='ml-10 mt-72 space-y-5'>
+      <div className='ml-10 mt-72'>
         <PopularMovieList/>
-        <div className='flex space-x-6'>
-        <Button leftIcon={<BiPlay/>} colorScheme='whiteAlpha' variant='solid' width={120} textColor='black'>
-            Play
-          </Button>
-          <Button leftIcon={<BiSolidInfoCircle/>} colorScheme='whiteAlpha' variant='solid' width={120} textColor='black'>
-            More Info
-          </Button>
-        </div>
       </div>
     </section>
     <section>
