@@ -18,6 +18,7 @@ const App = () => {
     return popularMovies.map((movie, i ) => {
       return (
         <div className='w-1/3 space-y-5'>
+    
         <p className='text-8xl'>{movie.title}</p>
         <p className='text-md'>{movie.overview}</p>
         <div className='flex space-x-6'>
