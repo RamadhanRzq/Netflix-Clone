@@ -3,22 +3,48 @@ import Logo from './netflix.png'
 import {BiBell,BiSearch, BiCaretDown,BiPlay, BiSolidInfoCircle} from 'react-icons/bi'
 import {GoPersonFill} from 'react-icons/go'
 import { useEffect, useState } from 'react';
-import { getMovieList } from './Api';
+import { getMovieNowList } from './Api';
 
 const App = () => {
-  const [popularMovies, setPopularMovies] = useState([])
+  /* const [popularMovies, setPopularMovies] = useState([]) */
+  const [nowPlayingMovies, setNowPlayingMovies] = useState([])
 
-  useEffect (() => {
+  /* useEffect (() => {
     getMovieList().then((result) => {
       setPopularMovies(result)
     })
   })
+ */
+  useEffect (() => {
+    getMovieNowList().then((result) => {
+      setNowPlayingMovies(result)
+    })
+  })
 
-  const PopularMovieList = () => {
+  /* const PopularMovieList = () => {
     return popularMovies.map((movie, i ) => {
       return (
         <div className='w-1/3 space-y-5'>
     
+        <p className='text-8xl'>{movie.title}</p>
+        <p className='text-md'>{movie.overview}</p>
+        <div className='flex space-x-6'>
+        <Button leftIcon={<BiPlay/>} colorScheme='whiteAlpha' variant='solid' width={120} textColor='black'>
+            Play
+          </Button>
+          <Button leftIcon={<BiSolidInfoCircle/>} colorScheme='whiteAlpha' variant='solid' width={120} textColor='black'>
+            More Info
+          </Button>
+        </div>
+       </div>   
+      )
+    })
+  } */
+
+  const NowPlayingMovieList = () => {
+    return nowPlayingMovies.map((movie, i ) => {
+      return (
+        <div className='w-1/3 space-y-5' key={i}>
         <p className='text-8xl'>{movie.title}</p>
         <p className='text-md'>{movie.overview}</p>
         <div className='flex space-x-6'>
@@ -59,8 +85,8 @@ const App = () => {
     </div>
     </section>
     <section> 
-      <div className='ml-10 mt-72'>
-        <PopularMovieList/>
+      <div className='ml-10 mt-64'>
+        <NowPlayingMovieList/>
       </div>
     </section>
     <section>
